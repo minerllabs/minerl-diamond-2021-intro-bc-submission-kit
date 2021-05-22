@@ -6,9 +6,6 @@ from torch import nn
 MAX_TEST_EPISODE_LEN = 18000  # 18k is the default for MineRLObtainDiamond.
 TREECHOP_STEPS = 2000  # number of steps to run BC lumberjack for in evaluations.
 
-TEST_MODEL_NAME = 'another_potato.pth'
-
-
 # !!! Do not change this! This is part of the submission kit !!!
 class EpisodeDone(Exception):
     pass
@@ -277,8 +274,14 @@ class MineRLAgent():
         THIS METHOD IS ONLY CALLED ONCE AT THE BEGINNING OF THE EVALUATION.
         DO NOT LOAD YOUR MODEL ANYWHERE ELSE.
         """
-        # Load up the behavioural cloning model
-        self.network = th.load(TEST_MODEL_NAME).cuda()
+        # Load up the behavioural cloning model.
+        # NOTE: Unlike in the baseline code, we store and load the state dict of the network,
+        #       rather than the pickled network itself. This is to avoid importing issues
+        #       that rise when code structure changes (which happens if you train the model with
+        #       the baseline code and try to import it here).
+        # The good thing is that we know exactly what the input shape and output shapes should be
+        self.network = NatureCNN((3, 64, 64), 7).cuda()
+        self.network.load_state_dict(th.load("./train/another_potato_state_dict.pth"))
 
     def run_agent_on_episode(self, single_episode_env: Episode):
         """This method runs your agent on a SINGLE episode.
@@ -298,8 +301,9 @@ class MineRLAgent():
         Args:
             env (gym.Env): The env your agent should interact with.
         """
-        env = PovOnlyObservation(single_episode_env)
-        env = ActionShaping(single_episode_env, always_attack=True)
+        env = single_episode_env
+        env = PovOnlyObservation(env)
+        env = ActionShaping(env, always_attack=True)
         env1 = env.unwrapped
 
         obs = env.reset()
