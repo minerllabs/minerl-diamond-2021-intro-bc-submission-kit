@@ -1,0 +1,8 @@
+{
+  "challenge_id": "aicrowd-neurips-2021-minerl-challenge",
+  "grader_id": "aicrowd-neurips-2021-minerl-challenge",
+  "authors": ["Organizers"],
+  "tags": "intro",
+  "description": "A baseline solution using scripted behaviour and behavioural cloning",
+  "gpu": true
+}

@@ -1,0 +1,18 @@
+name: minerl
+channels:
+  - conda-forge
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.7
+  - pip
+  - py-opencv
+  - cudatoolkit=10.1
+  - pytorch=1.8.0
+  - pip:
+    - crowdai_api
+    - minerl
+    - coloredlogs
+    - matplotlib
+    - pyro4
+    - numpy
