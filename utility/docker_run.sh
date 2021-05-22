@@ -24,8 +24,6 @@ if [[ " $@ " =~ " --nvidia " ]]; then
     sudo nvidia-docker run \
     --net=host \
     --user 0 \
-    -e CROWDAI_IS_GRADING=True \
-    -e CROWDAI_DEBUG_MODE=True \
     -it ${IMAGE_NAME}:${IMAGE_TAG} \
     /bin/bash
 else
@@ -33,8 +31,6 @@ else
     sudo docker run \
     --net=host \
     --user 0 \
-    -e CROWDAI_IS_GRADING=True \
-    -e CROWDAI_DEBUG_MODE=True \
     -it ${IMAGE_NAME}:${IMAGE_TAG} \
     /bin/bash
 fi
