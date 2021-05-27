@@ -7,8 +7,8 @@ dependencies:
   - python=3.7
   - pip
   - py-opencv
-  - cudatoolkit=10.1
-  - pytorch=1.8.0
+  - cudatoolkit=10.2
+  - pytorch=1.8.1
   - pip:
     - crowdai_api
     - minerl
