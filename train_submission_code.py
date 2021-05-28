@@ -50,6 +50,7 @@ def main():
     """
     # NOTE: There is no training phase in introduction track,
     #       so we just leave this empty.
+    return
 
 
 if __name__ == "__main__":
