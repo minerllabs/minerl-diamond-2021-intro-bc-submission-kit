@@ -22,7 +22,7 @@ solution, modified to fit into the submission baseline. See the original script 
 
 Here is a list things that were modified over the [submission template](https://github.com/minerllabs/competition_submission_template/) to get things working.
 
-1) Updated `aicrowd.json` to specify intro track with `"tags": "intro"`. Also set `"gpu": true` so that GPU used for running the model.
+1) Updated `aicrowd.json` to specify intro track with `"tags": "intro"`. Also set `"gpu": true` so that GPU is used for running the model.
 2) Updated `environment.yml` with the correct Python and PyTorch versions (note: it is important that you make sure these versions match your local setup, otherwise the agent may not work!).
-3) Added the behavioural cloning model `another_potato.pth`  to `./train` directory
-4) Updated `submission_test_code.py` by placing functions from the [baseline code](https://github.com/KarolisRam/MineRL2021-Intro-baselines/blob/main/standalone/BC_plus_script.py) into the file, and updating the main entry point inside `run_agent_on_episode` (at the end of the code file).
+3) Added the behavioural cloning model `another_potato.pth`  to `./train` directory.
+4) Updated `test_submission_code.py` by placing functions from the [baseline code](https://github.com/KarolisRam/MineRL2021-Intro-baselines/blob/main/standalone/BC_plus_script.py) into the file, and updating the main entry point inside `run_agent_on_episode` (at the end of the code file).
